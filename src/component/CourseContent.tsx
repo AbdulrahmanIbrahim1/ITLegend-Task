@@ -9,7 +9,7 @@ interface Lesson {
     title: string;
     questions?: string;
     duration?: string;
-    pdfUrl?: string;
+    pdfUrl?: string | null;
 }
 
 interface Week {
@@ -59,10 +59,10 @@ const CourseSection = ({
                         transition={{ duration: 0.3 }}
                         className="border-t border-gray-200"
                     >
-                        {lessons.map((lesson: any, i: number) => (
+                        {lessons.map((lesson: Lesson, i: number) => (
                             <div
                                 key={i}
-                                onClick={() => handleOpenPdf(lesson.pdfUrl)} 
+                                onClick={() => handleOpenPdf(lesson.pdfUrl || "")}
                                 className="flex justify-between items-center px-6 py-3 text-gray-700 text-sm hover:bg-gray-50 border-b border-gray-100 last:border-none cursor-pointer transition"
                             >
                                 <div className="flex items-center gap-2">
@@ -74,7 +74,7 @@ const CourseSection = ({
                                     {lesson.questions && (
                                         <button
                                             onClick={(e) => {
-                                                e.stopPropagation(); 
+                                                e.stopPropagation();
                                                 setShowExam(true);
                                             }}
                                             className="flex items-center gap-1 bg-yellow-400 text-white text-[11px] font-semibold px-2 py-[3px] rounded-full shadow-sm hover:bg-yellow-500 transition"

@@ -1,19 +1,24 @@
 "use client";
+import Link from "next/link";
+
 export default function Breadcrumb() {
   return (
-    <nav className="flex text-gray-600 text-sm mb-4" aria-label="Breadcrumb">
+    <nav
+      className="flex text-gray-600 text-sm mb-4"
+      aria-label="Breadcrumb"
+    >
       <ol className="inline-flex items-center space-x-1 md:space-x-2">
+        {/* Home */}
         <li className="inline-flex items-center">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center text-gray-700 hover:text-blue-600"
           >
-            
-              <path d="M10 3.172l6 6V17a1 1 0 01-1 1H5a1 1 0 01-1-1v-7.828l6-6z" />
             Home
-          </a>
+          </Link>
         </li>
 
+        {/* Courses */}
         <li>
           <div className="flex items-center">
             <svg
@@ -22,14 +27,20 @@ export default function Breadcrumb() {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
-            <a href="/" className="text-gray-700 hover:text-blue-600">
+            <Link href="/" className="text-gray-700 hover:text-blue-600">
               Courses
-            </a>
+            </Link>
           </div>
         </li>
 
+        {/* Course details */}
         <li>
           <div className="flex items-center">
             <svg
@@ -38,9 +49,16 @@ export default function Breadcrumb() {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
-            <span className="text-gray-500 capitalize ">Course details</span>
+            <span className="text-gray-500 capitalize">
+              Course details
+            </span>
           </div>
         </li>
       </ol>
